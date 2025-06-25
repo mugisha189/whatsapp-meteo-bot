@@ -1,0 +1,16 @@
+version: "3"
+services:
+    whatsapp-meteo-chatbott:
+        container_name: whatsapp-meteo-chatbott
+        read_only: true
+        image: ghcr.io/askrella/whatsapp-meteo-chatbott:master
+        environment:
+            OPENAI_API_KEY: ""
+            OPENAI_GPT_MODEL: ""
+            PREFIX_ENABLED: ""
+            SERPAPI_API_KEY: ""
+        restart: unless-stopped
+        volumes:
+            - session-data:/app/session
+volumes:
+    session-data:
